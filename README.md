@@ -34,6 +34,8 @@ kubectl get pods/pod
 kubectl describe pods <podname>
 # 查看node详细信息  
 kubectl describe nodes <nodename>
+# 查看ip, port信息  
+kubectl get svc
 ```
 4. 删除资源  
 ```
