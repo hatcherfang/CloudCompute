@@ -13,6 +13,21 @@ sudo docker exec -d {{containerName or containerID}} bash
 - 只用 -t 参数，则可以看到一个 console 窗口，但是执行命令会发现由于没有获得stdin的输出，无法看到命令执行情况
 - 使用 -it 时，则和我们平常操作 console 界面类似，而且也不会像attach方式因为退出，导致整个容器退出
 - 使用 -d 参数，在后台执行一个进程。如果一个命令需要长时间进程，会很快返回
+#### Docker 拉取镜像(pull)  
+```
+docker pull image_name 
+```
+
+#### Docker 推送镜像(push)  
+镜像重命名：  
+```
+docker tag origin_image_name new_image_name
+```
+将镜像推送到镜像仓库中:  
+```
+docker push new_image_name
+```
+
 
 ### K8s  
 ## 常用命令  
