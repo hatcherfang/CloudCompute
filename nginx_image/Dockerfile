@@ -18,7 +18,7 @@ RUN CONFIG="\
         " \
         && useradd nginx -s /sbin/nologin \
         && yum makecache fast \
-        && yum install vim openssl openssl-devel pcre pcre-devel gcc epel-release openssh-server -y \
+        && yum install vim openssl openssl-devel pcre pcre-devel gcc epel-release openssh-server logrotate -y \
         && curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o /usr/local/src/nginx-$NGINX_VERSION.tar.gz  \
         && tar -xvf /usr/local/src/nginx-$NGINX_VERSION.tar.gz  -C /usr/local/src \
         && cd /usr/local/src/nginx-$NGINX_VERSION \
@@ -36,6 +36,8 @@ COPY config/conf/nginx.conf /usr/local/nginx/conf/nginx.conf
 COPY config/nginx.conf /usr/local/nginx/nginx.conf
 COPY config/localtime /etc/localtime
 COPY config/supervisord.conf /etc/supervisor/
+COPY config/logrotate/nginx /etc/logrotate.d/
+COPY config/logrotate/supervisor /etc/logrotate.d/
 
 EXPOSE 8443
 CMD ["/usr/bin/supervisord","-c","/etc/supervisor/supervisord.conf"]

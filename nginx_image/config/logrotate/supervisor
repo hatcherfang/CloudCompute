@@ -1,0 +1,13 @@
+/supervisord.log  {
+daily
+rotate 7
+missingok
+dateext
+compress
+delaycompress
+notifempty
+sharedscripts
+postrotate
+    [ -e /supervisord.pid ] && kill -USR1 `cat /supervisord.pid`
+endscript
+}
