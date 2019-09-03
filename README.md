@@ -27,7 +27,8 @@ docker tag origin_image_name new_image_name
 ```
 docker push new_image_name
 ```
-
+### nginx 镜像制作  
+详细制作内容请查看目录 nginx_image  
 
 ### K8s  
 ## 常用命令  
@@ -51,6 +52,8 @@ kubectl describe pods <podname>
 kubectl describe nodes <nodename>
 # 查看ip, port信息  
 kubectl get svc
+# 查看当前namespace  
+kubectl get namespace  
 ```
 4. 删除资源  
 ```
